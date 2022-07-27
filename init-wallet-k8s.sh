@@ -68,13 +68,11 @@ if [[ "${REMOTE_SIGNING}" == "1" ]]; then
   echo "[STARTUP] Provisioning remote signer RPC secrets"
   lndinit -v load-secret \
     --source=k8s \
-    --k8s.base64 \
     --k8s.namespace="${REMOTE_SIGNER_RPC_SECRETS_NAMESPACE}" \
     --k8s.secret-name="${REMOTE_SIGNER_RPC_SECRETS_NAME}" \
     --k8s.secret-key-name=tls.cert > "${REMOTE_SIGNER_RPC_SECRETS_DIR}/tls.cert"
   lndinit -v load-secret \
     --source=k8s \
-    --k8s.base64 \
     --k8s.namespace="${REMOTE_SIGNER_RPC_SECRETS_NAMESPACE}" \
     --k8s.secret-name="${REMOTE_SIGNER_RPC_SECRETS_NAME}" \
     --k8s.secret-key-name=admin.macaroon > "${REMOTE_SIGNER_RPC_SECRETS_DIR}/admin.macaroon"
@@ -95,7 +93,6 @@ if [[ "${UPLOAD_RPC_SECRETS}" == "1" ]]; then
     --batch \
     --overwrite \
     --target=k8s \
-    --k8s.base64 \
     --k8s.namespace="${RPC_SECRETS_NAMESPACE}" \
     --k8s.secret-name="${RPC_SECRETS_NAME}" \
     "${CERT_DIR}/tls.cert" \
