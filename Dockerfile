@@ -47,6 +47,7 @@ RUN sha256sum /bin/lnd /bin/lncli > /shasums.txt \
   && cat /shasums.txt
   
 ADD init-wallet-k8s.sh /init-wallet-k8s.sh
+RUN chmod +x /init-wallet-k8s.sh
 
 EXPOSE 9735 10009
 
