@@ -51,4 +51,4 @@ ADD init-wallet-k8s.sh /init-wallet-k8s.sh
 EXPOSE 9735 10009
 
 
-ENTRYPOINT ["init-wallet-k8s.sh"]
+ENTRYPOINT ["/init-wallet-k8s.sh"]
