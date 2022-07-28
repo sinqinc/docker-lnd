@@ -16,6 +16,10 @@ REMOTE_SIGNING=${REMOTE_SIGNING:0}
 REMOTE_SIGNER_RPC_SECRETS_DIR=${REMOTE_SIGNER_RPC_SECRETS_DIR:-/tmp}
 REMOTE_SIGNER_RPC_SECRETS_NAME=${REMOTE_SIGNER_RPC_SECRETS_NAME:-lnd-signer-rpc-secret}
 REMOTE_SIGNER_RPC_SECRETS_NAMESPACE=${REMOTE_SIGNER_RPC_SECRETS_NAMESPACE:-signer}
+INIT_LND=${INIT_LND:-0}
+
+if [[ "${INIT_LND}" == "1" ]]; then
+
 
 echo "[STARTUP] Asserting wallet password exists in secret ${WALLET_SECRET_NAME}"
 lndinit gen-password \
@@ -50,6 +54,8 @@ lndinit -v init-wallet \
 
 echo ""
 echo "[STARTUP] Preparing lnd auto unlock file"
+
+fi
 
 # To make sure the password can be read exactly once (by lnd itself), we create
 # a named pipe. Because we can only write to such a pipe if there's a reader on
