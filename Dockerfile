@@ -26,9 +26,6 @@ RUN git clone $git_urlINIT /go/src/github.com/lightninglabs/lndinit \
 
 FROM alpine as final
 
-
-VOLUME /root/.lnd
-
 RUN apk --no-cache add \
     bash \
     jq \
