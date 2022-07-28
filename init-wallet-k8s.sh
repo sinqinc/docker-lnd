@@ -52,10 +52,12 @@ lndinit -v init-wallet \
   --init-file.output-wallet-dir="${WALLET_DIR}" \
   --init-file.validate-password
 
-echo ""
-echo "[STARTUP] Preparing lnd auto unlock file"
+
 
 fi
+
+echo ""
+echo "[STARTUP] Preparing lnd auto unlock file"
 
 # To make sure the password can be read exactly once (by lnd itself), we create
 # a named pipe. Because we can only write to such a pipe if there's a reader on
